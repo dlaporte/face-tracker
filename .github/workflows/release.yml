@@ -79,12 +79,38 @@ jobs:
           # Create a zip for notarization
           ditto -c -k --keepParent "$APP_PATH" FaceTracker-notarize.zip
 
+          # Verify codesigning before submitting
+          codesign --verify --deep --strict --verbose=2 "$APP_PATH"
+          codesign -d --entitlements :- "$APP_PATH"
+
           # Submit for notarization and wait
           xcrun notarytool submit FaceTracker-notarize.zip \
             --apple-id "$APPLE_ID" \
             --password "$APPLE_APP_PASSWORD" \
             --team-id "$APPLE_TEAM_ID" \
-            --wait
+            --wait || NOTARIZE_FAILED=true
+
+          # If notarization failed, fetch the log for diagnostics
+          if [ "$NOTARIZE_FAILED" = "true" ]; then
+            SUBMISSION_ID=$(xcrun notarytool history \
+              --apple-id "$APPLE_ID" \
+              --password "$APPLE_APP_PASSWORD" \
+              --team-id "$APPLE_TEAM_ID" 2>&1 | head -5)
+            echo "Recent submissions: $SUBMISSION_ID"
+
+            # Try to get the log from the most recent submission
+            xcrun notarytool log \
+              --apple-id "$APPLE_ID" \
+              --password "$APPLE_APP_PASSWORD" \
+              --team-id "$APPLE_TEAM_ID" \
+              "$(xcrun notarytool history \
+                --apple-id "$APPLE_ID" \
+                --password "$APPLE_APP_PASSWORD" \
+                --team-id "$APPLE_TEAM_ID" 2>&1 | grep -o '[0-9a-f\-]\{36\}' | head -1)" \
+              notarization-log.json || true
+            cat notarization-log.json 2>/dev/null || echo "Could not fetch log"
+            exit 1
+          fi
 
           # Staple the notarization ticket to the app
           xcrun stapler staple "$APP_PATH"
