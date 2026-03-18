@@ -90,6 +90,7 @@ jobs:
           APPLE_ID: ${{ secrets.APPLE_ID }}
           APPLE_APP_PASSWORD: ${{ secrets.APPLE_APP_PASSWORD }}
         run: |
+          set +e  # Don't exit on error — we need to capture the log
           APP_PATH="build/Build/Products/Release/FaceTracker.app"
 
           # Create a zip for notarization
@@ -97,34 +98,33 @@ jobs:
 
           # Verify codesigning before submitting
           codesign --verify --deep --strict --verbose=2 "$APP_PATH"
-          codesign -d --entitlements :- "$APP_PATH"
+          echo "=== Embedded entitlements ==="
+          codesign -d --entitlements - "$APP_PATH" 2>&1
+          echo "=== End entitlements ==="
 
-          # Submit for notarization and wait
-          xcrun notarytool submit FaceTracker-notarize.zip \
+          # Submit for notarization and wait, capture output
+          SUBMIT_OUTPUT=$(xcrun notarytool submit FaceTracker-notarize.zip \
             --apple-id "$APPLE_ID" \
             --password "$APPLE_APP_PASSWORD" \
             --team-id "$APPLE_TEAM_ID" \
-            --wait || NOTARIZE_FAILED=true
+            --wait 2>&1)
+          SUBMIT_EXIT=$?
+          echo "$SUBMIT_OUTPUT"
 
-          # If notarization failed, fetch the log for diagnostics
-          if [ "$NOTARIZE_FAILED" = "true" ]; then
-            SUBMISSION_ID=$(xcrun notarytool history \
-              --apple-id "$APPLE_ID" \
-              --password "$APPLE_APP_PASSWORD" \
-              --team-id "$APPLE_TEAM_ID" 2>&1 | head -5)
-            echo "Recent submissions: $SUBMISSION_ID"
+          # Extract submission ID
+          SUBMISSION_ID=$(echo "$SUBMIT_OUTPUT" | grep "id:" | head -1 | awk '{print $2}')
+          echo "Submission ID: $SUBMISSION_ID"
 
-            # Try to get the log from the most recent submission
-            xcrun notarytool log \
+          if [ $SUBMIT_EXIT -ne 0 ] || echo "$SUBMIT_OUTPUT" | grep -q "Invalid"; then
+            echo "=== Notarization failed — fetching log ==="
+            xcrun notarytool log "$SUBMISSION_ID" \
               --apple-id "$APPLE_ID" \
               --password "$APPLE_APP_PASSWORD" \
               --team-id "$APPLE_TEAM_ID" \
-              "$(xcrun notarytool history \
-                --apple-id "$APPLE_ID" \
-                --password "$APPLE_APP_PASSWORD" \
-                --team-id "$APPLE_TEAM_ID" 2>&1 | grep -o '[0-9a-f\-]\{36\}' | head -1)" \
-              notarization-log.json || true
+              notarization-log.json 2>&1 || true
+            echo "=== Notarization Log ==="
             cat notarization-log.json 2>/dev/null || echo "Could not fetch log"
+            echo "========================"
             exit 1
           fi
 
