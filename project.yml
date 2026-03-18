@@ -3,6 +3,9 @@ options:
   deploymentTarget:
     macOS: "12.0"
   bundleIdPrefix: com.facetracker
+settings:
+  base:
+    SWIFT_VERSION: 5.9
 targets:
   FaceTracker:
     type: application

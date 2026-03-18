@@ -14,7 +14,9 @@
     <string>FaceTracker needs camera access to detect which camera you are looking at.</string>
     <key>NSPrincipalClass</key>
     <string>NSApplication</string>
-    <key>NSMainStoryboardFile</key>
-    <string></string>
+    <key>CFBundleExecutable</key>
+    <string>$(EXECUTABLE_NAME)</string>
+    <key>CFBundlePackageType</key>
+    <string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 </dict>
 </plist>
