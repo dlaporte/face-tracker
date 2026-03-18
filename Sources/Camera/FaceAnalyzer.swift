@@ -1,8 +1,11 @@
 import AVFoundation
 import Vision
+import os
 
 struct FaceAnalyzer {
 
+    /// Returns `.lookingAtCamera` or `.lookingAway` only — never `.noFace`.
+    /// `.noFace` is produced by `analyze(_:yawThreshold:pitchThreshold:)` when no face is detected.
     // Pure, testable logic — no AVFoundation dependency
     static func gazeState(
         yaw: Double?,
@@ -18,15 +21,20 @@ struct FaceAnalyzer {
 
     // AVFoundation + Vision integration (called from CameraSession background queue)
     func analyze(_ buffer: CMSampleBuffer, yawThreshold: Double, pitchThreshold: Double) -> GazeState {
-        let request = VNDetectFaceRectanglesRequest()
-        guard let handler = try? VNImageRequestHandler(cmSampleBuffer: buffer, orientation: .up, options: [:]),
-              let _ = try? handler.perform([request]),
-              let observations = request.results, !observations.isEmpty
-        else {
+        let request = VNDetectFaceLandmarksRequest()
+        let handler: VNImageRequestHandler
+        do {
+            handler = try VNImageRequestHandler(cmSampleBuffer: buffer, orientation: .up, options: [:])
+            try handler.perform([request])
+        } catch {
+            os_log(.error, "FaceAnalyzer: Vision request failed: %{public}@", error.localizedDescription)
             return .noFace
         }
 
-        // Use largest face
+        guard let observations = request.results, !observations.isEmpty else {
+            return .noFace
+        }
+
         let largest = observations.max(by: {
             $0.boundingBox.width * $0.boundingBox.height < $1.boundingBox.width * $1.boundingBox.height
         })!
