@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: macos-14
+    env:
+      APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
     steps:
       - uses: actions/checkout@v4
 
@@ -17,6 +19,36 @@ jobs:
       - name: Generate Xcode project
         run: xcodegen generate
 
+      - name: Import signing certificate
+        env:
+          P12_BASE64: ${{ secrets.DEVELOPER_CERTIFICATE_P12_BASE64 }}
+          P12_PASSWORD: ${{ secrets.DEVELOPER_CERTIFICATE_PASSWORD }}
+        run: |
+          # Create a temporary keychain
+          KEYCHAIN_PATH="$RUNNER_TEMP/signing.keychain-db"
+          KEYCHAIN_PASSWORD="$(openssl rand -hex 16)"
+
+          security create-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
+          security set-keychain-settings -lut 21600 "$KEYCHAIN_PATH"
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
+
+          # Import the certificate
+          CERT_PATH="$RUNNER_TEMP/certificate.p12"
+          echo "$P12_BASE64" | base64 --decode > "$CERT_PATH"
+          security import "$CERT_PATH" \
+            -P "$P12_PASSWORD" \
+            -A \
+            -t cert \
+            -f pkcs12 \
+            -k "$KEYCHAIN_PATH"
+
+          # Set the keychain as the default and add to search list
+          security list-keychain -d user -s "$KEYCHAIN_PATH" login.keychain-db
+          security set-key-partition-list -S apple-tool:,apple: -s -k "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
+
+          # Verify
+          security find-identity -v -p codesigning "$KEYCHAIN_PATH"
+
       - name: Build
         run: |
           xcodebuild build \
@@ -25,8 +57,10 @@ jobs:
             -configuration Release \
             -derivedDataPath build \
             -destination 'platform=macOS' \
-            CODE_SIGN_IDENTITY="-" \
-            CODE_SIGNING_REQUIRED=NO
+            CODE_SIGN_STYLE=Manual \
+            CODE_SIGN_IDENTITY="Developer ID Application" \
+            DEVELOPMENT_TEAM="$APPLE_TEAM_ID" \
+            OTHER_CODE_SIGN_FLAGS="--options runtime"
 
       - name: Run tests
         run: |
@@ -35,24 +69,39 @@ jobs:
             -scheme FaceTracker \
             -destination 'platform=macOS'
 
-      - name: Create DMG
+      - name: Notarize app
         env:
-          TAG_NAME: ${{ github.ref_name }}
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          APPLE_APP_PASSWORD: ${{ secrets.APPLE_APP_PASSWORD }}
         run: |
           APP_PATH="build/Build/Products/Release/FaceTracker.app"
 
-          # Verify app exists
-          ls -la "$APP_PATH"
+          # Create a zip for notarization
+          ditto -c -k --keepParent "$APP_PATH" FaceTracker-notarize.zip
 
-          # Create a temporary directory for DMG contents
+          # Submit for notarization and wait
+          xcrun notarytool submit FaceTracker-notarize.zip \
+            --apple-id "$APPLE_ID" \
+            --password "$APPLE_APP_PASSWORD" \
+            --team-id "$APPLE_TEAM_ID" \
+            --wait
+
+          # Staple the notarization ticket to the app
+          xcrun stapler staple "$APP_PATH"
+
+      - name: Create DMG
+        env:
+          TAG_NAME: ${{ github.ref_name }}
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          APPLE_APP_PASSWORD: ${{ secrets.APPLE_APP_PASSWORD }}
+        run: |
+          APP_PATH="build/Build/Products/Release/FaceTracker.app"
+          VERSION="${TAG_NAME#v}"
+
+          # Create DMG contents
           mkdir -p dmg_contents
           cp -R "$APP_PATH" dmg_contents/
-
-          # Create a symlink to Applications
           ln -s /Applications dmg_contents/Applications
-
-          # Get version from tag
-          VERSION="${TAG_NAME#v}"
 
           # Create DMG
           hdiutil create \
@@ -61,6 +110,14 @@ jobs:
             -ov \
             -format UDZO \
             "FaceTracker-${VERSION}.dmg"
+
+          # Notarize the DMG too
+          xcrun notarytool submit "FaceTracker-${VERSION}.dmg" \
+            --apple-id "$APPLE_ID" \
+            --password "$APPLE_APP_PASSWORD" \
+            --team-id "$APPLE_TEAM_ID" \
+            --wait
+          xcrun stapler staple "FaceTracker-${VERSION}.dmg"
 
       - name: Upload DMG artifact
         uses: actions/upload-artifact@v4
@@ -75,3 +132,9 @@ jobs:
           generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Cleanup keychain
+        if: always()
+        run: |
+          KEYCHAIN_PATH="$RUNNER_TEMP/signing.keychain-db"
+          security delete-keychain "$KEYCHAIN_PATH" 2>/dev/null || true
