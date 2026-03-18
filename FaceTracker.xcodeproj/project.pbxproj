@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		11E92C95B7EF66627414BEE6 /* FaceAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A10E7B0038D2551EF0D6383 /* FaceAnalyzer.swift */; };
 		259FB500D33833F56C295B7D /* GazeStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3250B0CAC1F81918BB32F577 /* GazeStateTests.swift */; };
+		584DDD8593F29D7C94B480D9 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A5325A920B28641FA7085E /* AppSettings.swift */; };
 		5DD7FBB180A6DD56E1F7388C /* GazeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA7EC7539572BFD0D311247 /* GazeState.swift */; };
 		B2E10AF1017101BC6C9FB34B /* FaceTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEEB8B2D516642DFE5EDEC7 /* FaceTrackerApp.swift */; };
+		C9D73BA36C5BA694DBDDA899 /* AppSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C438BB28B9EC0BD76761D93 /* AppSettingsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +29,8 @@
 		0AA7EC7539572BFD0D311247 /* GazeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GazeState.swift; sourceTree = "<group>"; };
 		2BF73A5D0826861A2DC68A2C /* FaceTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FaceTracker.entitlements; sourceTree = "<group>"; };
 		3250B0CAC1F81918BB32F577 /* GazeStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GazeStateTests.swift; sourceTree = "<group>"; };
+		3C438BB28B9EC0BD76761D93 /* AppSettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsTests.swift; sourceTree = "<group>"; };
+		57A5325A920B28641FA7085E /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		5A10E7B0038D2551EF0D6383 /* FaceAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceAnalyzer.swift; sourceTree = "<group>"; };
 		5BEEB8B2D516642DFE5EDEC7 /* FaceTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceTrackerApp.swift; sourceTree = "<group>"; };
 		647BA2053C2913658EFC0C9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -42,6 +46,7 @@
 				5BEEB8B2D516642DFE5EDEC7 /* FaceTrackerApp.swift */,
 				647BA2053C2913658EFC0C9F /* Info.plist */,
 				BA1BAA6DD531B247F65692CB /* Camera */,
+				8C75D1D6C03B6065E9974383 /* Models */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -49,9 +54,18 @@
 		67820FFC0BC092F555EFD046 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				3C438BB28B9EC0BD76761D93 /* AppSettingsTests.swift */,
 				3250B0CAC1F81918BB32F577 /* GazeStateTests.swift */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		8C75D1D6C03B6065E9974383 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				57A5325A920B28641FA7085E /* AppSettings.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		BA1BAA6DD531B247F65692CB /* Camera */ = {
@@ -81,7 +95,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		"TEMP_042161A1-F6B3-4CE9-AB9E-FBC52E911B35" /* Views */ = {
+		"TEMP_9CC48051-CFAC-413A-B65A-F3FAB6226ABF" /* Views */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -166,6 +180,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9D73BA36C5BA694DBDDA899 /* AppSettingsTests.swift in Sources */,
 				259FB500D33833F56C295B7D /* GazeStateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -174,6 +189,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				584DDD8593F29D7C94B480D9 /* AppSettings.swift in Sources */,
 				11E92C95B7EF66627414BEE6 /* FaceAnalyzer.swift in Sources */,
 				B2E10AF1017101BC6C9FB34B /* FaceTrackerApp.swift in Sources */,
 				5DD7FBB180A6DD56E1F7388C /* GazeState.swift in Sources */,
