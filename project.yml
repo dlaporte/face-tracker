@@ -1,7 +1,7 @@
 name: FaceTracker
 options:
   deploymentTarget:
-    macOS: "12.0"
+    macOS: "13.0"
   bundleIdPrefix: com.facetracker
 settings:
   base:
