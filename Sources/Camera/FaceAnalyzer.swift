@@ -21,10 +21,10 @@ struct FaceAnalyzer {
 
     // AVFoundation + Vision integration (called from CameraSession background queue)
     func analyze(_ buffer: CMSampleBuffer, yawThreshold: Double, pitchThreshold: Double) -> GazeState {
-        let request = VNDetectFaceLandmarksRequest()
+        let request = VNDetectFaceRectanglesRequest()
         let handler: VNImageRequestHandler
         do {
-            handler = try VNImageRequestHandler(cmSampleBuffer: buffer, orientation: .up, options: [:])
+            handler = VNImageRequestHandler(cmSampleBuffer: buffer, orientation: .up, options: [:])
             try handler.perform([request])
         } catch {
             os_log(.error, "FaceAnalyzer: Vision request failed: %{public}@", error.localizedDescription)
@@ -39,9 +39,13 @@ struct FaceAnalyzer {
             $0.boundingBox.width * $0.boundingBox.height < $1.boundingBox.width * $1.boundingBox.height
         })!
 
+        // Vision returns yaw/pitch in radians — convert to degrees for threshold comparison
+        let yawDegrees = largest.yaw.map { Double(truncating: $0) * 180.0 / .pi }
+        let pitchDegrees = largest.pitch.map { Double(truncating: $0) * 180.0 / .pi }
+
         return FaceAnalyzer.gazeState(
-            yaw: largest.yaw.map { Double(truncating: $0) },
-            pitch: largest.pitch.map { Double(truncating: $0) },
+            yaw: yawDegrees,
+            pitch: pitchDegrees,
             yawThreshold: yawThreshold,
             pitchThreshold: pitchThreshold
         )

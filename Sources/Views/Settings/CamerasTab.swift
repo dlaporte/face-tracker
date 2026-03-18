@@ -36,7 +36,7 @@ struct CamerasTab: View {
             Section("Fallback Behavior") {
                 HStack {
                     Text("Delay before returning to default")
-                    Slider(value: $settings.fallbackDelay, in: 0...10, step: 0.5)
+                    Slider(value: $settings.fallbackDelay, in: 0...60, step: 0.5)
                     Text(String(format: "%.1fs", settings.fallbackDelay))
                         .monospacedDigit()
                         .frame(width: 40, alignment: .trailing)

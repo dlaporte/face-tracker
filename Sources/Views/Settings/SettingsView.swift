@@ -17,5 +17,12 @@ struct SettingsView: View {
                 .tabItem { Label("Detection", systemImage: "eye") }
         }
         .frame(minWidth: 500, minHeight: 350)
+        .toolbar {
+            ToolbarItem {
+                Button("Reset to Defaults") {
+                    settings.resetToDefaults()
+                }
+            }
+        }
     }
 }

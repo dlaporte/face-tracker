@@ -32,7 +32,7 @@ class AppSettings: ObservableObject {
     @AppStorage("overlayOpacity")   var overlayOpacity: Double = 0.30
     @AppStorage("yawThreshold")     var yawThreshold: Double  = 20.0
     @AppStorage("pitchThreshold")   var pitchThreshold: Double = 15.0
-    @AppStorage("fallbackDelay")    var fallbackDelay: Double  = 3.0
+    @AppStorage("fallbackDelay")    var fallbackDelay: Double  = 30.0
     @AppStorage("defaultCameraID")  var defaultCameraID: String = ""
 
     @AppStorage("lookingColorHex") private var lookingColorHex: String = "#00FF7F"
@@ -60,6 +60,17 @@ class AppSettings: ObservableObject {
     var enabledCameraIDs: [String] {
         get { AppSettings.decodeIDs(enabledCameraIDsJSON) }
         set { enabledCameraIDsJSON = AppSettings.encodeIDs(newValue) }
+    }
+
+    func resetToDefaults() {
+        overlayOpacity = 0.30
+        yawThreshold = 20.0
+        pitchThreshold = 15.0
+        fallbackDelay = 30.0
+        lookingColorHex = "#00FF7F"
+        awayColorHex = "#FF3B30"
+        // Note: defaultCameraID and enabledCameraIDs are not reset
+        // since they depend on connected hardware
     }
 
     static func encodeIDs(_ ids: [String]) -> String {
