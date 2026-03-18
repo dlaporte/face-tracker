@@ -15,6 +15,7 @@
 		584DDD8593F29D7C94B480D9 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A5325A920B28641FA7085E /* AppSettings.swift */; };
 		5DD7FBB180A6DD56E1F7388C /* GazeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA7EC7539572BFD0D311247 /* GazeState.swift */; };
 		5EC1A78D9EBB0D0EEC6A6EA2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8417DC5BCC27B95F18CF9480 /* ContentView.swift */; };
+		798458E482B784E742434858 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55B870D83585E490FE83577 /* AboutView.swift */; };
 		9E748885EEF0A1BE73412E53 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEF8B93C2A9581DEF9A7015 /* CameraViewModel.swift */; };
 		B2E10AF1017101BC6C9FB34B /* FaceTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEEB8B2D516642DFE5EDEC7 /* FaceTrackerApp.swift */; };
 		BBE49F1B66E05C05A389AAC8 /* CameraViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55740CAE670DA494EC19BF4 /* CameraViewModelTests.swift */; };
@@ -24,6 +25,7 @@
 		DE6A074A86C91817C6C1FB6B /* ActiveCameraControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94777D9B12DDEA7FEA66623D /* ActiveCameraControllerTests.swift */; };
 		E173AB498D94F752F03FEE55 /* CameraTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1FB607FF7A97170538C466 /* CameraTileView.swift */; };
 		EB81E66061A456A9716ADC96 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32715968F75FA2976F40EEF5 /* SettingsView.swift */; };
+		ECBA05157700993D2C678F2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8D3BF1C9FCFDA4F0FFBF751 /* Assets.xcassets */; };
 		EFF38E9FF3014CA9FAB40F28 /* CameraSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C5945D662BF13109FD01C9 /* CameraSession.swift */; };
 		FC7E12C27F814A6649432D19 /* AppearanceTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF0AB1515B7ACA4C3B1FCA7 /* AppearanceTab.swift */; };
 /* End PBXBuildFile section */
@@ -59,7 +61,9 @@
 		9DEF8B93C2A9581DEF9A7015 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 		B55740CAE670DA494EC19BF4 /* CameraViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModelTests.swift; sourceTree = "<group>"; };
 		C372A9861E73585211105815 /* FaceTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FaceTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C55B870D83585E490FE83577 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		D1AFDBC4F52DAF1997B5EB08 /* FaceTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8D3BF1C9FCFDA4F0FFBF751 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7E9AAEC10035EEC275D2E9A /* CamerasTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamerasTab.swift; sourceTree = "<group>"; };
 		FDF0AB1515B7ACA4C3B1FCA7 /* AppearanceTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceTab.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,6 +83,7 @@
 		3610DAB11EFFFCF26C005D15 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C55B870D83585E490FE83577 /* AboutView.swift */,
 				9B1FB607FF7A97170538C466 /* CameraTileView.swift */,
 				8417DC5BCC27B95F18CF9480 /* ContentView.swift */,
 				30BA50F3DE6064BE894C2F56 /* PermissionDeniedView.swift */,
@@ -90,6 +95,7 @@
 		5F76CC1191B74A2167155F0E /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				D8D3BF1C9FCFDA4F0FFBF751 /* Assets.xcassets */,
 				2BF73A5D0826861A2DC68A2C /* FaceTracker.entitlements */,
 				5BEEB8B2D516642DFE5EDEC7 /* FaceTrackerApp.swift */,
 				647BA2053C2913658EFC0C9F /* Info.plist */,
@@ -158,6 +164,7 @@
 			buildConfigurationList = 1A07B1FCDA93E3148FE4FF34 /* Build configuration list for PBXNativeTarget "FaceTracker" */;
 			buildPhases = (
 				B56FA5FA6652D1053CD58631 /* Sources */,
+				1F55785D548359AB9561C3A3 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -223,6 +230,17 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		1F55785D548359AB9561C3A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECBA05157700993D2C678F2F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		80C02616EB2FCCABCDA1728A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -239,6 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				798458E482B784E742434858 /* AboutView.swift in Sources */,
 				BF2680214CBC51009E7CAA89 /* ActiveCameraController.swift in Sources */,
 				584DDD8593F29D7C94B480D9 /* AppSettings.swift in Sources */,
 				FC7E12C27F814A6649432D19 /* AppearanceTab.swift in Sources */,

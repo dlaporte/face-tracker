@@ -21,6 +21,7 @@ targets:
         DEVELOPMENT_TEAM: ""
         CODE_SIGN_IDENTITY: "-"
         OTHER_LDFLAGS: ""
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
     entitlements:
       path: Sources/FaceTracker.entitlements
   FaceTrackerTests:

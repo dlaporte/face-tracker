@@ -35,19 +35,7 @@ struct ContentView: View {
 
             statusBar
         }
-        .toolbar {
-            ToolbarItem(placement: .navigation) {
-                Text("FaceTracker")
-                    .font(.headline)
-            }
-            ToolbarItem {
-                if let activeID = controller.activeCameraID,
-                   let vm = cameraManager.cameraViewModels.first(where: { $0.id == activeID }) {
-                    Label(vm.displayName, systemImage: "camera.fill")
-                        .foregroundColor(settings.lookingColor)
-                }
-            }
-        }
+        .navigationTitle("FaceTracker")
     }
 
     private var emptyState: some View {

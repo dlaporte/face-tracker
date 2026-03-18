@@ -37,6 +37,13 @@ struct FaceTrackerApp: App {
             .onAppear { requestCameraAccess() }
         }
         .defaultSize(width: 960, height: 540)
+        .commands {
+            CommandGroup(replacing: .appInfo) {
+                Button("About FaceTracker") {
+                    showAboutPanel()
+                }
+            }
+        }
 
         Settings {
             SettingsView(settings: settings, cameraManager: cameraManager)
@@ -60,5 +67,44 @@ struct FaceTrackerApp: App {
         @unknown default:
             cameraAuthorized = false
         }
+    }
+
+    private func showAboutPanel() {
+        let cameraCount = discoverCameraCount()
+        let osVersion = ProcessInfo.processInfo.operatingSystemVersion
+        let osString = "\(osVersion.majorVersion).\(osVersion.minorVersion).\(osVersion.patchVersion)"
+
+        let creditsString = """
+        Monitors multiple camera feeds and detects which camera you're looking at \
+        using face orientation analysis via the Vision framework.
+
+        Detection: Vision (face orientation)
+        Frameworks: AVFoundation, Vision, SwiftUI
+        Cameras detected: \(cameraCount)
+        macOS: \(osString)
+
+        Built as a proof of concept for automatic camera switching.
+        """
+
+        let credits = NSAttributedString(
+            string: creditsString,
+            attributes: [
+                .font: NSFont.systemFont(ofSize: 11),
+                .foregroundColor: NSColor.secondaryLabelColor
+            ]
+        )
+
+        NSApp.orderFrontStandardAboutPanel(options: [
+            .applicationName: "FaceTracker",
+            .credits: credits,
+        ])
+    }
+
+    private func discoverCameraCount() -> Int {
+        var types: [AVCaptureDevice.DeviceType] = [.builtInWideAngleCamera]
+        if #available(macOS 14, *) { types.append(.external) }
+        return AVCaptureDevice.DiscoverySession(
+            deviceTypes: types, mediaType: .video, position: .unspecified
+        ).devices.count
     }
 }
