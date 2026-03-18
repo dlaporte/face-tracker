@@ -1,0 +1,424 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		11E92C95B7EF66627414BEE6 /* FaceAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A10E7B0038D2551EF0D6383 /* FaceAnalyzer.swift */; };
+		259FB500D33833F56C295B7D /* GazeStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3250B0CAC1F81918BB32F577 /* GazeStateTests.swift */; };
+		5DD7FBB180A6DD56E1F7388C /* GazeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA7EC7539572BFD0D311247 /* GazeState.swift */; };
+		B2E10AF1017101BC6C9FB34B /* FaceTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEEB8B2D516642DFE5EDEC7 /* FaceTrackerApp.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CBAA300F1CF6D252C4D63384 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 09D8915105AA592EEC27484C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 83C0878F1DF9B4FE05648B15;
+			remoteInfo = FaceTracker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0AA7EC7539572BFD0D311247 /* GazeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GazeState.swift; sourceTree = "<group>"; };
+		2BF73A5D0826861A2DC68A2C /* FaceTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FaceTracker.entitlements; sourceTree = "<group>"; };
+		3250B0CAC1F81918BB32F577 /* GazeStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GazeStateTests.swift; sourceTree = "<group>"; };
+		5A10E7B0038D2551EF0D6383 /* FaceAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceAnalyzer.swift; sourceTree = "<group>"; };
+		5BEEB8B2D516642DFE5EDEC7 /* FaceTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceTrackerApp.swift; sourceTree = "<group>"; };
+		647BA2053C2913658EFC0C9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C372A9861E73585211105815 /* FaceTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FaceTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1AFDBC4F52DAF1997B5EB08 /* FaceTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		5F76CC1191B74A2167155F0E /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				2BF73A5D0826861A2DC68A2C /* FaceTracker.entitlements */,
+				5BEEB8B2D516642DFE5EDEC7 /* FaceTrackerApp.swift */,
+				647BA2053C2913658EFC0C9F /* Info.plist */,
+				BA1BAA6DD531B247F65692CB /* Camera */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		67820FFC0BC092F555EFD046 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				3250B0CAC1F81918BB32F577 /* GazeStateTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		BA1BAA6DD531B247F65692CB /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				5A10E7B0038D2551EF0D6383 /* FaceAnalyzer.swift */,
+				0AA7EC7539572BFD0D311247 /* GazeState.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		F0EB2E7C2F3BC83ACC07B6F1 = {
+			isa = PBXGroup;
+			children = (
+				5F76CC1191B74A2167155F0E /* Sources */,
+				67820FFC0BC092F555EFD046 /* Tests */,
+				FAF89E9239B972A1A4D40957 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FAF89E9239B972A1A4D40957 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D1AFDBC4F52DAF1997B5EB08 /* FaceTracker.app */,
+				C372A9861E73585211105815 /* FaceTrackerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		"TEMP_042161A1-F6B3-4CE9-AB9E-FBC52E911B35" /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		83C0878F1DF9B4FE05648B15 /* FaceTracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A07B1FCDA93E3148FE4FF34 /* Build configuration list for PBXNativeTarget "FaceTracker" */;
+			buildPhases = (
+				B56FA5FA6652D1053CD58631 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FaceTracker;
+			packageProductDependencies = (
+			);
+			productName = FaceTracker;
+			productReference = D1AFDBC4F52DAF1997B5EB08 /* FaceTracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DBC3200E6DA7B61C8E921515 /* FaceTrackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03D8635E4E464C6C6B8D462A /* Build configuration list for PBXNativeTarget "FaceTrackerTests" */;
+			buildPhases = (
+				80C02616EB2FCCABCDA1728A /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6E82CAFC59ECFE2C036CA448 /* PBXTargetDependency */,
+			);
+			name = FaceTrackerTests;
+			packageProductDependencies = (
+			);
+			productName = FaceTrackerTests;
+			productReference = C372A9861E73585211105815 /* FaceTrackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		09D8915105AA592EEC27484C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					83C0878F1DF9B4FE05648B15 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 04D01B34847439671B79E2B6 /* Build configuration list for PBXProject "FaceTracker" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = F0EB2E7C2F3BC83ACC07B6F1;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = FAF89E9239B972A1A4D40957 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				83C0878F1DF9B4FE05648B15 /* FaceTracker */,
+				DBC3200E6DA7B61C8E921515 /* FaceTrackerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		80C02616EB2FCCABCDA1728A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				259FB500D33833F56C295B7D /* GazeStateTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B56FA5FA6652D1053CD58631 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11E92C95B7EF66627414BEE6 /* FaceAnalyzer.swift in Sources */,
+				B2E10AF1017101BC6C9FB34B /* FaceTrackerApp.swift in Sources */,
+				5DD7FBB180A6DD56E1F7388C /* GazeState.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6E82CAFC59ECFE2C036CA448 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 83C0878F1DF9B4FE05648B15 /* FaceTracker */;
+			targetProxy = CBAA300F1CF6D252C4D63384 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		016C270B890AC0BB882883B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.facetracker.tests;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FaceTracker.app/Contents/MacOS/FaceTracker";
+			};
+			name = Debug;
+		};
+		08EF337A20C93434769350AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Sources/FaceTracker.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = Sources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.facetracker.app;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		104B63C1D70574FF2B35E175 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		441AE8BE3B07085E27A35C3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		C4EB40956BEE458B48FAF51E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Sources/FaceTracker.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = Sources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.facetracker.app;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		F0C128038FA52EDC09FCEB95 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.facetracker.tests;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FaceTracker.app/Contents/MacOS/FaceTracker";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		03D8635E4E464C6C6B8D462A /* Build configuration list for PBXNativeTarget "FaceTrackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				016C270B890AC0BB882883B5 /* Debug */,
+				F0C128038FA52EDC09FCEB95 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		04D01B34847439671B79E2B6 /* Build configuration list for PBXProject "FaceTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				441AE8BE3B07085E27A35C3D /* Debug */,
+				104B63C1D70574FF2B35E175 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		1A07B1FCDA93E3148FE4FF34 /* Build configuration list for PBXNativeTarget "FaceTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				08EF337A20C93434769350AD /* Debug */,
+				C4EB40956BEE458B48FAF51E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 09D8915105AA592EEC27484C /* Project object */;
+}

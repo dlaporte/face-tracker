@@ -33,5 +33,7 @@ targets:
     settings:
       base:
         SWIFT_VERSION: 5.9
+        GENERATE_INFOPLIST_FILE: YES
+        PRODUCT_BUNDLE_IDENTIFIER: com.facetracker.tests
         TEST_HOST: "$(BUILT_PRODUCTS_DIR)/FaceTracker.app/Contents/MacOS/FaceTracker"
         BUNDLE_LOADER: "$(TEST_HOST)"
