@@ -75,6 +75,7 @@ class CameraSession: NSObject {
             if !self.restartAttempted {
                 self.restartAttempted = true
                 self.sessionQueue.async {
+                    self.session.stopRunning()
                     self.session.startRunning()
                     if !self.session.isRunning {
                         DispatchQueue.main.async { self.viewModel.isErrored = true }

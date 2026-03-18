@@ -47,12 +47,14 @@ struct FaceTrackerApp: App {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
         case .authorized:
             cameraAuthorized = true
+            cameraManager.enumerateAndSync()
         case .denied, .restricted:
             cameraAuthorized = false
         case .notDetermined:
             AVCaptureDevice.requestAccess(for: .video) { granted in
                 DispatchQueue.main.async {
                     cameraAuthorized = granted
+                    if granted { cameraManager.enumerateAndSync() }
                 }
             }
         @unknown default:

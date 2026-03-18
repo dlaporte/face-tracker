@@ -8,22 +8,22 @@ struct CamerasTab: View {
     var body: some View {
         Form {
             Section("Connected Cameras") {
-                if cameraManager.cameraViewModels.isEmpty {
+                if cameraManager.allDiscoveredDevices.isEmpty {
                     Text("No cameras detected").foregroundColor(.secondary)
                 } else {
-                    ForEach(cameraManager.cameraViewModels) { vm in
+                    ForEach(cameraManager.allDiscoveredDevices, id: \.id) { device in
                         HStack {
-                            Toggle(isOn: enabledBinding(for: vm.id)) {
-                                Text(vm.displayName)
+                            Toggle(isOn: enabledBinding(for: device.id)) {
+                                Text(device.name)
                             }
                             Spacer()
-                            if vm.id == settings.defaultCameraID {
+                            if device.id == settings.defaultCameraID {
                                 Text("★ Default")
                                     .font(.caption)
                                     .foregroundColor(.orange)
                             } else {
                                 Button("Set Default") {
-                                    settings.defaultCameraID = vm.id
+                                    settings.defaultCameraID = device.id
                                 }
                                 .buttonStyle(.borderless)
                                 .font(.caption)

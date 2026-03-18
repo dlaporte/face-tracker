@@ -27,7 +27,9 @@ class ActiveCameraController: ObservableObject {
                 .sink { [weak self] _ in self?.evaluateGazeStates() }
                 .store(in: &cancellables)
         }
-        activeCameraID = resolvedDefaultID()
+        if activeCameraID == nil || !cameras.contains(where: { $0.id == activeCameraID }) {
+            activeCameraID = resolvedDefaultID()
+        }
         updateIsActiveFlags()
     }
 

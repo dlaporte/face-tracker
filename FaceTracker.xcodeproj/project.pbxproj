@@ -7,18 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0EF338AD8E467502958848B0 /* CamerasTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E9AAEC10035EEC275D2E9A /* CamerasTab.swift */; };
 		11E92C95B7EF66627414BEE6 /* FaceAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A10E7B0038D2551EF0D6383 /* FaceAnalyzer.swift */; };
 		259FB500D33833F56C295B7D /* GazeStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3250B0CAC1F81918BB32F577 /* GazeStateTests.swift */; };
+		496A195AE445C19ADC212605 /* PermissionDeniedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BA50F3DE6064BE894C2F56 /* PermissionDeniedView.swift */; };
 		54C34AB1586CA15FFF2D9F22 /* CameraSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534FD4FC1C611F6C4B3D4FC1 /* CameraSessionManager.swift */; };
 		584DDD8593F29D7C94B480D9 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A5325A920B28641FA7085E /* AppSettings.swift */; };
 		5DD7FBB180A6DD56E1F7388C /* GazeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA7EC7539572BFD0D311247 /* GazeState.swift */; };
+		5EC1A78D9EBB0D0EEC6A6EA2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8417DC5BCC27B95F18CF9480 /* ContentView.swift */; };
 		9E748885EEF0A1BE73412E53 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEF8B93C2A9581DEF9A7015 /* CameraViewModel.swift */; };
 		B2E10AF1017101BC6C9FB34B /* FaceTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEEB8B2D516642DFE5EDEC7 /* FaceTrackerApp.swift */; };
 		BBE49F1B66E05C05A389AAC8 /* CameraViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55740CAE670DA494EC19BF4 /* CameraViewModelTests.swift */; };
 		BF2680214CBC51009E7CAA89 /* ActiveCameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A8A93256A23566F8999DA8 /* ActiveCameraController.swift */; };
 		C9D73BA36C5BA694DBDDA899 /* AppSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C438BB28B9EC0BD76761D93 /* AppSettingsTests.swift */; };
+		CA880BBADBFD0C4FBEA9364F /* DetectionTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6933CF8EB7AB9406231C31 /* DetectionTab.swift */; };
 		DE6A074A86C91817C6C1FB6B /* ActiveCameraControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94777D9B12DDEA7FEA66623D /* ActiveCameraControllerTests.swift */; };
+		E173AB498D94F752F03FEE55 /* CameraTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1FB607FF7A97170538C466 /* CameraTileView.swift */; };
+		EB81E66061A456A9716ADC96 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32715968F75FA2976F40EEF5 /* SettingsView.swift */; };
 		EFF38E9FF3014CA9FAB40F28 /* CameraSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C5945D662BF13109FD01C9 /* CameraSession.swift */; };
+		FC7E12C27F814A6649432D19 /* AppearanceTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF0AB1515B7ACA4C3B1FCA7 /* AppearanceTab.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,8 +41,11 @@
 /* Begin PBXFileReference section */
 		0AA7EC7539572BFD0D311247 /* GazeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GazeState.swift; sourceTree = "<group>"; };
 		2BF73A5D0826861A2DC68A2C /* FaceTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FaceTracker.entitlements; sourceTree = "<group>"; };
+		30BA50F3DE6064BE894C2F56 /* PermissionDeniedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionDeniedView.swift; sourceTree = "<group>"; };
 		3250B0CAC1F81918BB32F577 /* GazeStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GazeStateTests.swift; sourceTree = "<group>"; };
+		32715968F75FA2976F40EEF5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		3C438BB28B9EC0BD76761D93 /* AppSettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsTests.swift; sourceTree = "<group>"; };
+		4C6933CF8EB7AB9406231C31 /* DetectionTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionTab.swift; sourceTree = "<group>"; };
 		534FD4FC1C611F6C4B3D4FC1 /* CameraSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSessionManager.swift; sourceTree = "<group>"; };
 		57A5325A920B28641FA7085E /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		5A10E7B0038D2551EF0D6383 /* FaceAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceAnalyzer.swift; sourceTree = "<group>"; };
@@ -43,14 +53,40 @@
 		647BA2053C2913658EFC0C9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		71A8A93256A23566F8999DA8 /* ActiveCameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveCameraController.swift; sourceTree = "<group>"; };
 		75C5945D662BF13109FD01C9 /* CameraSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSession.swift; sourceTree = "<group>"; };
+		8417DC5BCC27B95F18CF9480 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		94777D9B12DDEA7FEA66623D /* ActiveCameraControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveCameraControllerTests.swift; sourceTree = "<group>"; };
+		9B1FB607FF7A97170538C466 /* CameraTileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraTileView.swift; sourceTree = "<group>"; };
 		9DEF8B93C2A9581DEF9A7015 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 		B55740CAE670DA494EC19BF4 /* CameraViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModelTests.swift; sourceTree = "<group>"; };
 		C372A9861E73585211105815 /* FaceTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FaceTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1AFDBC4F52DAF1997B5EB08 /* FaceTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7E9AAEC10035EEC275D2E9A /* CamerasTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamerasTab.swift; sourceTree = "<group>"; };
+		FDF0AB1515B7ACA4C3B1FCA7 /* AppearanceTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceTab.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
+		0EF1376FEC3E69D128315A13 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				FDF0AB1515B7ACA4C3B1FCA7 /* AppearanceTab.swift */,
+				E7E9AAEC10035EEC275D2E9A /* CamerasTab.swift */,
+				4C6933CF8EB7AB9406231C31 /* DetectionTab.swift */,
+				32715968F75FA2976F40EEF5 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		3610DAB11EFFFCF26C005D15 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9B1FB607FF7A97170538C466 /* CameraTileView.swift */,
+				8417DC5BCC27B95F18CF9480 /* ContentView.swift */,
+				30BA50F3DE6064BE894C2F56 /* PermissionDeniedView.swift */,
+				0EF1376FEC3E69D128315A13 /* Settings */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		5F76CC1191B74A2167155F0E /* Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -59,6 +95,7 @@
 				647BA2053C2913658EFC0C9F /* Info.plist */,
 				BA1BAA6DD531B247F65692CB /* Camera */,
 				8C75D1D6C03B6065E9974383 /* Models */,
+				3610DAB11EFFFCF26C005D15 /* Views */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -111,13 +148,6 @@
 				C372A9861E73585211105815 /* FaceTrackerTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		"TEMP_DC4033AF-4899-4539-A855-2019E7AB6B62" /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,12 +241,19 @@
 			files = (
 				BF2680214CBC51009E7CAA89 /* ActiveCameraController.swift in Sources */,
 				584DDD8593F29D7C94B480D9 /* AppSettings.swift in Sources */,
+				FC7E12C27F814A6649432D19 /* AppearanceTab.swift in Sources */,
 				EFF38E9FF3014CA9FAB40F28 /* CameraSession.swift in Sources */,
 				54C34AB1586CA15FFF2D9F22 /* CameraSessionManager.swift in Sources */,
+				E173AB498D94F752F03FEE55 /* CameraTileView.swift in Sources */,
 				9E748885EEF0A1BE73412E53 /* CameraViewModel.swift in Sources */,
+				0EF338AD8E467502958848B0 /* CamerasTab.swift in Sources */,
+				5EC1A78D9EBB0D0EEC6A6EA2 /* ContentView.swift in Sources */,
+				CA880BBADBFD0C4FBEA9364F /* DetectionTab.swift in Sources */,
 				11E92C95B7EF66627414BEE6 /* FaceAnalyzer.swift in Sources */,
 				B2E10AF1017101BC6C9FB34B /* FaceTrackerApp.swift in Sources */,
 				5DD7FBB180A6DD56E1F7388C /* GazeState.swift in Sources */,
+				496A195AE445C19ADC212605 /* PermissionDeniedView.swift in Sources */,
+				EB81E66061A456A9716ADC96 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,7 +352,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -377,7 +414,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;

@@ -4,6 +4,7 @@ import Combine
 class CameraSessionManager: ObservableObject {
 
     @Published var cameraViewModels: [CameraViewModel] = []
+    @Published var allDiscoveredDevices: [(id: String, name: String)] = []
     var sessions: [String: CameraSession] = [:]
 
     private let settings: AppSettings
@@ -15,7 +16,6 @@ class CameraSessionManager: ObservableObject {
         self.settings = settings
         self.controller = controller
         observeHotPlug()
-        enumerateAndSync()
     }
 
     deinit {
@@ -25,6 +25,7 @@ class CameraSessionManager: ObservableObject {
 
     func enumerateAndSync() {
         let discovered = discoverDevices()
+        allDiscoveredDevices = discovered.map { (id: $0.uniqueID, name: $0.localizedName) }
         let enabled = settings.enabledCameraIDs
 
         // If enabledCameraIDs is empty (first launch), enable all discovered cameras
@@ -66,10 +67,8 @@ class CameraSessionManager: ObservableObject {
             settings.defaultCameraID = newViewModels.first?.id ?? ""
         }
 
-        DispatchQueue.main.async {
-            self.cameraViewModels = newViewModels
-            self.controller.update(cameras: newViewModels)
-        }
+        self.cameraViewModels = newViewModels
+        self.controller.update(cameras: newViewModels)
     }
 
     func setEnabled(_ enabled: Bool, for deviceID: String) {
