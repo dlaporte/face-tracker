@@ -12,7 +12,7 @@ struct DetectionTab: View {
                     Text("Max head-turn angle to count as 'looking'")
                         .font(.caption).foregroundColor(.secondary)
                     HStack {
-                        Slider(value: $settings.yawThreshold, in: 5...45, step: 1)
+                        Slider(value: $settings.yawThreshold, in: 0...90, step: 1)
                         Text("\(Int(settings.yawThreshold))°")
                             .monospacedDigit()
                             .frame(width: 36, alignment: .trailing)
@@ -23,7 +23,7 @@ struct DetectionTab: View {
                     Text("Max head-tilt angle to count as 'looking'")
                         .font(.caption).foregroundColor(.secondary)
                     HStack {
-                        Slider(value: $settings.pitchThreshold, in: 5...45, step: 1)
+                        Slider(value: $settings.pitchThreshold, in: 0...90, step: 1)
                         Text("\(Int(settings.pitchThreshold))°")
                             .monospacedDigit()
                             .frame(width: 36, alignment: .trailing)

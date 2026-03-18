@@ -30,8 +30,8 @@ class AppSettings: ObservableObject {
     static let shared = AppSettings()
 
     @AppStorage("overlayOpacity")   var overlayOpacity: Double = 0.30
-    @AppStorage("yawThreshold")     var yawThreshold: Double  = 20.0
-    @AppStorage("pitchThreshold")   var pitchThreshold: Double = 15.0
+    @AppStorage("yawThreshold")     var yawThreshold: Double  = 35.0
+    @AppStorage("pitchThreshold")   var pitchThreshold: Double = 35.0
     @AppStorage("fallbackDelay")    var fallbackDelay: Double  = 30.0
     @AppStorage("defaultCameraID")  var defaultCameraID: String = ""
 
@@ -64,8 +64,8 @@ class AppSettings: ObservableObject {
 
     func resetToDefaults() {
         overlayOpacity = 0.30
-        yawThreshold = 20.0
-        pitchThreshold = 15.0
+        yawThreshold = 35.0
+        pitchThreshold = 35.0
         fallbackDelay = 30.0
         lookingColorHex = "#00FF7F"
         awayColorHex = "#FF3B30"
