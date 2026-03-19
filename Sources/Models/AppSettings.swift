@@ -34,6 +34,7 @@ class AppSettings: ObservableObject {
     @AppStorage("pitchThreshold")   var pitchThreshold: Double = 35.0
     @AppStorage("fallbackDelay")    var fallbackDelay: Double  = 30.0
     @AppStorage("defaultCameraID")  var defaultCameraID: String = ""
+    @AppStorage("zoomIntegrationEnabled") var zoomIntegrationEnabled: Bool = false
 
     @AppStorage("lookingColorHex") private var lookingColorHex: String = "#00FF7F"
     @AppStorage("awayColorHex")    private var awayColorHex: String   = "#FF3B30"
@@ -67,6 +68,7 @@ class AppSettings: ObservableObject {
         yawThreshold = 35.0
         pitchThreshold = 35.0
         fallbackDelay = 30.0
+        zoomIntegrationEnabled = false
         lookingColorHex = "#00FF7F"
         awayColorHex = "#FF3B30"
         // Note: defaultCameraID and enabledCameraIDs are not reset

@@ -24,6 +24,24 @@ targets:
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
     entitlements:
       path: Sources/FaceTracker.entitlements
+  FaceTrackerVirtualCamera:
+    type: system-extension
+    platform: macOS
+    sources:
+      - path: Sources/VirtualCameraExtension
+    settings:
+      base:
+        INFOPLIST_FILE: Sources/VirtualCameraExtension/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.facetracker.app.virtualcamera
+        PRODUCT_NAME: FaceTrackerVirtualCamera
+        SWIFT_VERSION: 5.9
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: ""
+        CODE_SIGN_IDENTITY: "-"
+        ENABLE_APP_SANDBOX: YES
+        SKIP_INSTALL: YES
+    entitlements:
+      path: Sources/VirtualCameraExtension/FaceTrackerVirtualCamera.entitlements
   FaceTrackerTests:
     type: bundle.unit-test
     platform: macOS
