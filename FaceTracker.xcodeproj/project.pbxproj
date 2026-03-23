@@ -62,7 +62,7 @@
 		2A1B00000000000000000014 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		2A1B00000000000000000015 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2A1B00000000000000000016 /* FaceTrackerVirtualCamera.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FaceTrackerVirtualCamera.entitlements; sourceTree = "<group>"; };
-		2A1B00000000000000000017 /* FaceTrackerVirtualCamera.systemextension */ = {isa = PBXFileReference; explicitFileType = wrapper.systemextension; includeInIndex = 0; path = FaceTrackerVirtualCamera.systemextension; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A1B00000000000000000017 /* FaceTrackerVirtualCamera.systemextension */ = {isa = PBXFileReference; explicitFileType = "wrapper.system-extension"; includeInIndex = 0; path = FaceTrackerVirtualCamera.systemextension; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BF73A5D0826861A2DC68A2C /* FaceTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FaceTracker.entitlements; sourceTree = "<group>"; };
 		30BA50F3DE6064BE894C2F56 /* PermissionDeniedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionDeniedView.swift; sourceTree = "<group>"; };
 		3250B0CAC1F81918BB32F577 /* GazeStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GazeStateTests.swift; sourceTree = "<group>"; };
@@ -106,15 +106,6 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		61F0B7A12B1B4D118A1EAA21 /* Integration */ = {
-			isa = PBXGroup;
-			children = (
-				2A1B00000000000000000011 /* VirtualCameraSystemExtensionManager.swift */,
-				61F0B7A12B1B4D118A1EAA11 /* ZoomIntegrationController.swift */,
-			);
-			path = Integration;
-			sourceTree = "<group>";
-		};
 		2A1B00000000000000000021 /* VirtualCameraExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +143,15 @@
 				3610DAB11EFFFCF26C005D15 /* Views */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		61F0B7A12B1B4D118A1EAA21 /* Integration */ = {
+			isa = PBXGroup;
+			children = (
+				2A1B00000000000000000011 /* VirtualCameraSystemExtensionManager.swift */,
+				61F0B7A12B1B4D118A1EAA11 /* ZoomIntegrationController.swift */,
+			);
+			path = Integration;
 			sourceTree = "<group>";
 		};
 		67820FFC0BC092F555EFD046 /* Tests */ = {
@@ -274,11 +274,9 @@
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					2A1B00000000000000000040 = {
-						DevelopmentTeam = "";
 						ProvisioningStyle = Automatic;
 					};
 					83C0878F1DF9B4FE05648B15 = {
-						DevelopmentTeam = "";
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -304,6 +302,17 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		1F55785D548359AB9561C3A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECBA05157700993D2C678F2F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXShellScriptBuildPhase section */
 		2A1B00000000000000000061 /* Embed Virtual Camera Extension */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -323,18 +332,16 @@
 		};
 /* End PBXShellScriptBuildPhase section */
 
-/* Begin PBXResourcesBuildPhase section */
-		1F55785D548359AB9561C3A3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
+/* Begin PBXSourcesBuildPhase section */
+		2A1B00000000000000000060 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECBA05157700993D2C678F2F /* Assets.xcassets in Resources */,
+				2A1B00000000000000000003 /* FaceTrackerVirtualCameraProvider.swift in Sources */,
+				2A1B00000000000000000004 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
 		80C02616EB2FCCABCDA1728A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -344,15 +351,6 @@
 				BBE49F1B66E05C05A389AAC8 /* CameraViewModelTests.swift in Sources */,
 				259FB500D33833F56C295B7D /* GazeStateTests.swift in Sources */,
 				61F0B7A12B1B4D118A1EAA03 /* ZoomIntegrationTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2A1B00000000000000000060 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2A1B00000000000000000003 /* FaceTrackerVirtualCameraProvider.swift in Sources */,
-				2A1B00000000000000000004 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,7 +423,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6JDN2ASZ4F;
 				INFOPLIST_FILE = Sources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -437,46 +435,6 @@
 				SWIFT_VERSION = 5.9;
 			};
 			name = Debug;
-		};
-		2A1B00000000000000000070 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_ENTITLEMENTS = Sources/VirtualCameraExtension/FaceTrackerVirtualCamera.entitlements;
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				ENABLE_APP_SANDBOX = YES;
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = Sources/VirtualCameraExtension/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.facetracker.app.virtualcamera;
-				PRODUCT_NAME = FaceTrackerVirtualCamera;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.9;
-				WRAPPER_EXTENSION = systemextension;
-			};
-			name = Debug;
-		};
-		2A1B00000000000000000071 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_ENTITLEMENTS = Sources/VirtualCameraExtension/FaceTrackerVirtualCamera.entitlements;
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				ENABLE_APP_SANDBOX = YES;
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = Sources/VirtualCameraExtension/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.facetracker.app.virtualcamera;
-				PRODUCT_NAME = FaceTrackerVirtualCamera;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.9;
-				WRAPPER_EXTENSION = systemextension;
-			};
-			name = Release;
 		};
 		104B63C1D70574FF2B35E175 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -531,6 +489,46 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		2A1B00000000000000000070 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = Sources/VirtualCameraExtension/FaceTrackerVirtualCamera.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6JDN2ASZ4F;
+				ENABLE_APP_SANDBOX = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Sources/VirtualCameraExtension/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.facetracker.app.virtualcamera;
+				PRODUCT_NAME = FaceTrackerVirtualCamera;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.9;
+				WRAPPER_EXTENSION = systemextension;
+			};
+			name = Debug;
+		};
+		2A1B00000000000000000071 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = Sources/VirtualCameraExtension/FaceTrackerVirtualCamera.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6JDN2ASZ4F;
+				ENABLE_APP_SANDBOX = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Sources/VirtualCameraExtension/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.facetracker.app.virtualcamera;
+				PRODUCT_NAME = FaceTrackerVirtualCamera;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.9;
+				WRAPPER_EXTENSION = systemextension;
 			};
 			name = Release;
 		};
@@ -605,7 +603,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6JDN2ASZ4F;
 				INFOPLIST_FILE = Sources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -639,15 +637,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2A1B00000000000000000050 /* Build configuration list for PBXNativeTarget "FaceTrackerVirtualCamera" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2A1B00000000000000000070 /* Debug */,
-				2A1B00000000000000000071 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
 		03D8635E4E464C6C6B8D462A /* Build configuration list for PBXNativeTarget "FaceTrackerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -671,6 +660,15 @@
 			buildConfigurations = (
 				08EF337A20C93434769350AD /* Debug */,
 				C4EB40956BEE458B48FAF51E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		2A1B00000000000000000050 /* Build configuration list for PBXNativeTarget "FaceTrackerVirtualCamera" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A1B00000000000000000070 /* Debug */,
+				2A1B00000000000000000071 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
