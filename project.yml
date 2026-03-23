@@ -12,6 +12,8 @@ targets:
     platform: macOS
     sources:
       - path: Sources
+        excludes:
+          - VirtualCameraExtension
     settings:
       base:
         INFOPLIST_FILE: Sources/Info.plist
