@@ -25,7 +25,10 @@ FaceTracker uses Apple's **Vision framework** to detect face orientation (yaw an
 - Adjustable detection sensitivity (yaw/pitch thresholds)
 - Configurable overlay opacity
 - Default camera selection with debounced fallback timer
+- Optional Zoom Workplace camera sync via macOS automation
+- Virtual camera system-extension scaffold for Zoom/Meet compatibility
 - Camera hot-plug support (connect/disconnect detected automatically)
+- Safer first launch: cameras are discovered after permission, but not auto-started until you enable them
 - Settings panel with Cameras, Appearance, and Detection tabs
 - Camera permission handling with graceful degradation
 - Reset to defaults
@@ -74,7 +77,8 @@ Threading: each camera has its own serial dispatch queue for frame capture and V
 ## Future
 
 This is a proof of concept. Potential next steps:
-- Expose active camera ID via XPC/IPC for a Zoom virtual camera plugin
+- Replace the current AppleScript-based Zoom bridge with a first-party Zoom App / SDK integration
+- Feed the active physical camera into the new FaceTracker virtual camera extension
 - Menu bar icon showing current active camera
 - Gaze confidence scoring
 

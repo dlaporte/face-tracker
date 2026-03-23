@@ -8,6 +8,19 @@ struct CamerasTab: View {
     var body: some View {
         Form {
             Section("Connected Cameras") {
+                HStack {
+                    Button(cameraManager.isDiscovering ? "Scanning..." : "Refresh Camera List") {
+                        cameraManager.enumerateAndSync()
+                    }
+                    .disabled(cameraManager.isDiscovering)
+
+                    if cameraManager.hasCompletedDiscovery {
+                        Text("\(cameraManager.allDiscoveredDevices.count) found")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                }
+
                 if cameraManager.allDiscoveredDevices.isEmpty {
                     Text("No cameras detected").foregroundColor(.secondary)
                 } else {

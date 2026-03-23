@@ -12,6 +12,8 @@
     <string>1.0</string>
     <key>NSCameraUsageDescription</key>
     <string>FaceTracker needs camera access to detect which camera you are looking at.</string>
+    <key>NSAppleEventsUsageDescription</key>
+    <string>FaceTracker uses Apple Events to tell Zoom Workplace which camera to use.</string>
     <key>NSPrincipalClass</key>
     <string>NSApplication</string>
     <key>CFBundleExecutable</key>
